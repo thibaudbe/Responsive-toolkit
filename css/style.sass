@@ -1,0 +1,419 @@
+/* 
+ * @author : Thibaud Boucherie
+ * @url : thibaudb.com
+ * @date : June 2013
+ *
+ */
+
+
+
+// VENDOR
+= vendor-prefix($name, $argument)
+    #{$name}: $argument
+    -webkit-#{$name}: $argument
+    -ms-#{$name}: $argument
+    -moz-#{$name}: $argument
+    -o-#{$name}: $argument
+
+
+
+// MIXINS
+@mixin cube($margin: 0px, $padding: 0px)
+    margin: $margin
+    padding: $padding
+
+@mixin size($width: 10px, $height: 10px)
+    width: $width
+    height: $height
+
+@mixin radius($top: 3px, $left: 3px, $bottom: 3px, $right: 3px)
+    -webkit-border-radius: $top $left $bottom $right
+    -moz-border-radius: $top $left $bottom $right
+    -ms-border-radius: $top $left $bottom $right
+    -o-border-radius: $top $left $bottom $right
+    border-radius: $top $left $bottom $right
+
+
+
+// COLORS
+$color_white: #ffffff
+$color_white: #000000
+$color_icon: #7C7C7C
+$color_icon_hover: #303030
+$color_bg_nav: #38373E
+$color_bg_frame: #16141B
+$color_selected: #292B30
+
+
+
+// GENERAL
+html
+    @include cube
+
+
+body
+    &.responsive-kit
+        background-color: $color_bg_frame
+        @include cube
+        font-size: 12px
+        overflow-y: hidden
+        -webkit-font-smoothing: antialiased
+
+    ul, li
+        @include cube
+        list-style-type: none
+        
+        a
+            text-decoration: none 
+            display: block
+
+
+    .cf
+        clear: both
+    
+    .icon
+        font-size: 16px
+        display: block
+    
+    .local
+        margin: 6px 10px 0 10px
+        padding: 2px 0
+        color: $color_bg_frame
+    
+    .selected
+        background-color: $color_selected
+        color: $color_bg_frame
+    
+    .selected-section
+        background-color: $color_bg_nav
+        
+        a
+            color: $color_bg_frame 
+    
+
+
+
+    nav
+        width: 100%
+        background: $color_bg_nav
+        border-top: #2D2D30 1px solid
+        color: $color_icon
+        position: relative
+        z-index: 999
+        height: 32px
+        +vendor-prefix(box-shadow, 0 1px 0 #000)
+        
+        span.center
+            display: block
+            margin: auto
+            width: 400px
+        
+
+        ul
+            position: relative
+            
+            &#screen
+                display: none
+
+                .option
+                    width: 0px 
+                    height: 32px
+                    overflow: hidden
+                    display: block
+                    float: left
+                    white-space: nowrap
+                    +vendor-prefix(transition, all 200ms ease-out)
+
+                    position: relative
+                    z-index: 1
+                    left: -23px
+
+                    li
+                        opacity: 0
+                        +vendor-prefix(transition, all 200ms ease-out)
+                    
+                
+                    &.active
+                        width: 64px 
+                        left: 0
+
+                        li
+                            opacity: 1
+
+                            &:first-child
+                                +vendor-prefix(transition-delay, 200ms)
+                            &:nth-child(2)
+                                +vendor-prefix(transition-delay, 200ms)
+                        
+                    
+            &#visib
+                float: right 
+                
+                li
+                    background-color: transparent
+
+                    .unvisib
+                        background-color: $color_bg_nav
+                        padding: 3px 4px 4px 8px
+                        position: relative
+                        top: 0
+                        opacity: 0
+                        @include radius(0, 0, 4px, 4px)
+                        +vendor-prefix(box-shadow, 0 1px 0 #000)
+                        +vendor-prefix(transform, rotateX(-95deg))
+                        +vendor-prefix(transform-origin, 100% 0%)
+
+                        &:hover
+                            color: $color_icon
+                        
+                    
+                
+                &.active
+                    .unvisib
+                        +vendor-prefix(transform, rotateX(0deg))
+                        opacity: 1  
+                    
+                    
+
+            &#info
+                float: right 
+
+            &#param
+                .sub
+                    position: absolute
+                    top: 32px 
+                    width: 252px
+                    background-color: $color_bg_nav
+                    padding: 11px 0 3px 0
+                    border-top: 1px solid $color_icon_hover
+                    opacity: 0
+                    z-index: 1
+                    @include radius(0, 0, 3px, 0)
+                    +vendor-prefix(transition, all 200ms ease-out)
+                    +vendor-prefix(transform, rotateX(-95deg))
+                    +vendor-prefix(transform-origin, 100% 0%)
+                    +vendor-prefix(box-shadow, 0 1px 0 #000)
+
+                    .icon
+                        float: left 
+                        margin: 2px 9px 0 12px
+                        font-size: 12px
+                        color: $color_bg_frame
+
+                    #url
+                        padding: 5px 8px
+                        margin: -4px 0 4px 0
+                        +vendor-prefix(box-shadow, 0 3px 2px -2px #000)
+                        border: none
+                        @include radius
+                        color: $color_bg_frame
+                        position: relative
+                        top: 0px
+                        +vendor-prefix(transition, all 200ms ease-out)
+
+                    .button
+                        border: none
+                        @include radius
+                        padding: 5px 8px 5px
+                        margin: -4px 0 0
+                        color: $color_bg_frame
+                        background-color: #fff
+                        font-weight: bold
+
+                    &.active 
+                        opacity: 1
+                        +vendor-prefix(transform, rotateX(0deg))
+
+            
+            &#refresh
+                //
+
+            &#resize-browser
+                //
+            
+            &#resize-frame
+                //
+                  
+
+            li
+                float: left
+                position: relative
+                z-index: 3
+                background-color: $color_bg_nav
+ 
+                &.sep
+                    hr
+                        height: 32px
+                        position: relative
+                        width: 1px
+                        border: none
+                        margin: 0
+                        background-color: $color_icon_hover
+    
+                
+                &.txt
+                    font-weight: bold
+                    padding: 9px 6px 0 10px
+                    text-transform: uppercase
+                    color: $color_bg_frame
+                
+
+                a
+                    color: $color_icon
+                    padding: 8px 8px 5px
+                    +vendor-prefix(transition, all 200ms ease-out)
+                    
+                    &:hover
+                        background-color: $color_icon 
+                        color: $color_bg_nav
+   
+
+                &.size
+                    margin: 0 10px 0 3px
+
+                    span
+                        display: block
+                        float: left
+                        padding: 4px 8px
+                        margin: 5px 0 0
+
+
+                        &.number
+                            background-color: $color_bg_frame
+                            @include radius
+                            +vendor-prefix(box-shadow, inset 0 1px 1px #000)
+                        
+                        &.x
+                            margin: 4px -4px
+    
+
+
+        #select
+            border: 1px solid #000
+            background-color: #008000
+        
+    
+
+    #info-window
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(22, 20, 27, 0.8)
+        z-index: 1000
+        overflow: scroll
+        display: none
+
+        hr
+            width: 100%
+            border: none
+            padding-top: 30px
+        
+
+        .inner
+            background-color: $color_bg_nav
+            color: $color_icon
+            width: 600px
+            margin: 70px auto
+            padding: 40px
+            position: relative
+            @include radius
+
+            .close
+                font-weight: bold
+                color: $color_bg_nav
+                background-color: $color_icon
+                position: absolute
+                right: 10px
+                top: -2px
+                padding: 3px 7px 4px
+                @include radius(80px, 80px, 80px, 80px)
+                +vendor-prefix(transition, all 200ms ease-out)
+                cursor: pointer
+
+                &:hover
+                    color: $color_icon
+                    background-color: $color_bg_frame
+                
+            
+            h1, h2
+                text-align: center
+
+            div.left
+                width: 40%
+                float: left
+                margin: 0 4.5%
+            
+            .left
+                width: 50%
+                float: left
+            
+            .right
+                width: 50%
+                float: right
+                text-align: right
+            
+            li
+                text-transform: uppercase
+                font-weight: bold
+                margin-bottom: 10px
+
+
+
+    #container
+        margin: auto
+        +vendor-prefix(transition, all 400ms ease-out)
+
+        .masked
+            display: none !important
+        .showed
+            display: block !important
+        
+
+        &.default          
+            width: 80%     
+            height: 80%    
+        &.computer
+            width: 1200px  
+            height: 80%    
+        &.laptop
+            width: 1024px  
+            height: 768px  
+        &.tablet-portrait
+            width: 600px   
+            height: 768px  
+        &.tablet-landscape
+            width: 768px   
+            height: 600px  
+        &.mobile-portrait
+            width: 320px   
+            height: 480px  
+        &.mobile-landscape
+            width: 480px   
+            height: 320px  
+        
+        iframe
+            width: 100%
+            height: 90%
+        
+        a.intro
+            text-align: center
+            text-transform: uppercase
+            font-weight: bold
+            width: 110px
+            padding: 15px
+            margin: 60px auto
+            color: $color_bg_frame
+            background-color: $color_bg_nav
+            @include radius
+            +vendor-prefix(transition, color 200ms ease-out)
+
+            &:hover  
+                background-color: $color_icon
+            
+
+            span
+                margin: 15px 0 0 0
+        
+    

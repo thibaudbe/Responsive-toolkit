@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select your size</title>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font.css">
+
+	
+</head>
+<body class="responsive-kit show">
+
+	<nav>	
+
+
+		<!-- put your url here -->
+		<ul id="param">
+			<li>
+				<a class="param" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe008;"></span>
+				</a>
+			</li>
+			<li class="sub">
+				<form id="target" action="javascript:console.log('success!');">
+					<span class="icon" aria-hidden="true" data-icon="&#xe011;"></span>
+					<input type="text" id="url" name="url" value="http://localhost:8888/" />
+					<input class="button" type="submit" value="GO" />
+				</form>
+			</li>
+		</ul>
+
+
+		<!-- select your template -->		
+		<ul id="screen">
+
+			<li class="sep"><hr></li>
+			<li class="txt">Select your viewport</li>
+
+			<li>
+				<a class="computer" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe004;"></span>
+				</a>
+			</li>
+
+			<li>
+				<a class="laptop" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe003;"></span>
+				</a>
+			</li>
+
+			<li>	
+				<a class="tablet" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe001;"></span>
+				</a>
+			</li>
+
+			<span class="tablet-option option">
+				<li>
+					<a class="tablet-portrait" href="#">
+						<span class="icon" aria-hidden="true" data-icon="&#xe019;"></span>
+					</a>
+				</li>
+				<li>
+					<a class="tablet-landscape" href="#">
+						<span class="icon" aria-hidden="true" data-icon="&#xe018;"></span>
+					</a>
+				</li>
+			</span>
+
+			<li>
+				<a class="mobile" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe000;"></span>
+				</a>
+			</li>
+
+			<span class="mobile-option option">
+				<li>
+					<a class="mobile-portrait" href="#">
+						<span class="icon" aria-hidden="true" data-icon="&#xe019;"></span>
+					</a>
+				</li>
+				<li>
+					<a class="mobile-landscape" href="#">
+						<span class="icon" aria-hidden="true" data-icon="&#xe018;"></span>
+					</a>
+				</li>
+			</span>
+
+			<li class="sep"><hr></li>
+
+		</ul>
+
+
+		<span class="center">
+
+			<!-- check the iframe size -->
+			<ul id="resize-frame">
+				<li class="sep"><hr></li>
+				<li class="txt">iframe</li>
+				<li class="size">
+					<span class="number">0</span>
+					<span class="x">x</span>
+					<span class="number">0</span>
+				</li>
+			</ul>
+
+
+			<!-- check the window size -->
+			<ul id="resize-browser">
+				<li class="sep"><hr></li>
+				<li class="txt">browser</li>
+				<li class="size">
+					<span class="number">0</span>
+					<span class="x">x</span>
+					<span class="number">0</span>
+				</li>
+			</ul>
+
+
+			<!-- refresh -->
+			<ul id="refresh">
+				<li class="sep"><hr></li>
+				<li>
+					<a class="refresh" href="#">
+						<span class="icon" aria-hidden="true" data-icon="&#xe025;"></span>
+					</a>	
+				</li>
+				<li class="sep"><hr></li>
+			</ul>
+
+		</span>
+
+
+
+		<!-- check w3c -->
+
+
+
+		<!-- info app -->
+		<ul id="info">
+			<li class="sep"><hr></li>
+
+			<li>
+				<a href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe00a;"></span>
+				</a>
+			</li>
+		</ul>
+
+
+		<!-- hide/show menu -->
+		<ul id="visib">
+			<li class="sep"><hr></li>
+			
+			<li>
+				<a class="visib" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe00d;"></span>
+				</a>
+				<a class="unvisib" href="#">
+					<span class="icon" aria-hidden="true" data-icon="&#xe00d;"></span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+	<div id="info-window">
+		<div class="inner">
+
+			<p class="close">x</p>
+			
+			<h1>Keyboard shortcut</h1>
+
+			<div class="left">
+				<ul class="left">
+					<li>Save url</li>
+					<li>Refresh frame</li>
+					<li>reset url</li>
+					<li>info</li>
+					<li>hide menu</li>
+					<li>show menu</li>
+				</ul>
+				<ul class="right">
+					<li>enter</li>
+					<li>shift+enter</li>
+					<li>ctrl+esc</li>
+					<li>ctrl+1</li>
+					<li>ctrl+keydown</li>
+					<li>ctrl+keyup</li>
+				</ul>
+			</div>
+
+			<div class="left">
+				<ul class="left">
+					<li>Computer size</li>
+					<li>Laptop size</li>
+					<li>Tablet portrait</li>
+					<li>Tablet landscape</li>
+					<li>mobile portrait</li>
+					<li>mobile landscape</li>
+				</ul>
+				<ul class="right">
+					<li>ctrl+4</li>
+					<li>ctrl+5</li>
+					<li>ctrl+6</li>
+					<li>ctrl+7</li>
+					<li>ctrl+8</li>
+					<li>ctrl+9</li>
+				</ul>
+			</div>
+
+			<hr/>
+
+			<h1>Credits</h1>
+			<ul class="left">
+				<li>Copyright ©2013 Thibaud B.</li>
+			</ul>
+			<ul class="right">
+				<li>www.thibaudb.com</li>
+			</ul>
+
+			<div class="cf"></div>
+
+		</div>
+	</div>
+
+
+	<div id="container" class="default">
+
+		<!-- content iframe -->
+		<iframe id="frame" src="" frameborder="0" border="0" scrolling="yes" class="masked"></iframe>
+
+		<ul id="intro" class="showed">
+			<li>
+				<a class="intro" href="#">Enter your URL
+					<!--<span class="icon" aria-hidden="true" data-icon="&#xe011;"></span>-->
+				</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
